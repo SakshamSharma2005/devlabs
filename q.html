@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="q.css">
+</head>
+<body>
+
+  <script>
+    // Hover effect for the button
+    document.querySelector('.hero button').addEventListener('mouseenter', () => {
+      document.querySelector('.hero button').style.transform = 'scale(1.05)';
+    });
+
+    document.querySelector('.hero button').addEventListener('mouseleave', () => {
+      document.querySelector('.hero button').style.transform = 'scale(1)';
+    });
+
+    const carousel = document.querySelector('.carousel');
+    let currentIndex = 0;
+
+    function nextSlide() {
+      if (currentIndex < carousel.children.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = carousel.children.length - 1;
+      }
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const items = carousel.children;
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.transform = `translateX(-${currentIndex * 270}px)`;
+      }
+    }
+
+    setInterval(nextSlide, 3000); // Change slides every 3 seconds
+    updateCarousel();
+
+    // Play video on hover
+    document.querySelectorAll('.carousel-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const video = item.querySelector('video');
+        if (video) {
+          video.play();
+        }
+      });
+      item.addEventListener('mouseleave', () => {
+        const video = item.querySelector('video');
+        if (video) {
+          video.pause();
+        }
+      });
+    });
+  </script>
+
+  <!-- Header Section with Navigation -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="gghub2.jpg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Anime</a></li>
+      </ul>
+    </nav>
+    <div class="about-us">
+      <a href="#">About Us</a> <!-- About Us Section on the Right -->
+    </div>
+  </header>
+
+  <!-- Hero Section with Full-Screen Background -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Anytime, Anywhere</h1>
+      <p>Join today to enjoy your favorite movies, anime, games, and shows.</p>
+      <button>JOIN US</button>
+    </div>
+  </section>
+
+  <!-- Ready to Start Watching Section -->
+  <section class="ready-to-start">
+    <h2>Ready to Start Watching?</h2>
+    <p>Sign up now and enjoy endless entertainment at your fingertips.</p>
+    <button class="get-started">Get Started</button>
+  </section>
+
+  <!-- Featured Content Sections -->
+  <section class="featured">
+    <h2>Featured Movies</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="videoplayback.mp4" type="video/mp4">
+        </video>
+        <img src="dpw.jpeg" alt="Movie 1">
+        <p>Movie 1</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="movie2.mp4" type="video/mp4">
+        </video>
+        <img src="mi.jpeg" alt="Movie 2">
+        <p>Movie 2</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="movie3.mp4" type="video/mp4">
+        </video>
+        <img src="jw.jpeg" alt="Movie 3">
+        <p>Movie 3</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="movie4.mp4" type="video/mp4">
+        </video>
+        <img src="kill2.jpg.jpeg" alt="Movie 4">
+        <p>Movie 4</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="movie5.mp4" type="video/mp4">
+        </video>
+        <img src="kalki.jpeg" alt="Movie 5">
+        <p>Movie 5</p>
+      </div>
+    </div>
+    <button class="watch-now">Watch Now</button>
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Anime</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="anime1.mp4" type="video/mp4">
+        </video>
+        <img src="anime1.jpg" alt="Anime 1">
+        <p>Anime 1</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="anime2.mp4" type="video/mp4">
+        </video>
+        <img src="anime2.jpg" alt="Anime 2">
+        <p>Anime 2</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="anime3.mp4" type="video/mp4">
+        </video>
+        <img src="anime3.jpg" alt="Anime 3">
+        <p>Anime 3</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="anime4.mp4" type="video/mp4">
+        </video>
+        <img src="anime4.jpg" alt="Anime 4">
+        <p>Anime 4</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="anime5.mp4" type="video/mp4">
+        </video>
+        <img src="anime5.jpg" alt="Anime 5">
+        <p>Anime 5</p>
+      </div>
+    </div>
+    <button class="watch-now">Watch Now</button>
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Series</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="Mirzapur - Official Trailer (UNCUT) 2018 _ Rated 18+ _ Amazon Prime Original.mp4" type="video/mp4">
+        </video>
+        <img src="mirzapur.jpeg" alt="Series 1">
+        <p>Series 1</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="series2.mp4" type="video/mp4">
+        </video>
+        <img src="gullak.jpeg" alt="Series 2">
+        <p>Series 2</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="series3.mp4" type="video/mp4">
+        </video>
+        <img src="panchayat.jpeg" alt="Series 3">
+        <p>Series 3</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="series4.mp4" type="video/mp4">
+        </video>
+        <img src="sg.jpeg" alt="Series 4">
+        <p>Series 4</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="series5.mp4" type="video/mp4">
+        </video>
+        <img src="scam.jpeg" alt="Series 5">
+        <p>Series 5</p>
+      </div>
+    </div>
+    <button class="watch-now">Watch Now</button>
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Games</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="game1.mp4" type="video/mp4">
+        </video>
+        <img src="g2.jpeg" alt="Game 1">
+        <p>Game 1</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="game2.mp4" type="video/mp4">
+        </video>
+        <img src="g3.jpeg" alt="Game 2">
+        <p>Game 2</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="game3.mp4" type="video/mp4">
+        </video>
+        <img src="g4.jpeg" alt="Game 3">
+        <p>Game 3</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="game4.mp4" type="video/mp4">
+        </video>
+        <img src="g5.jpeg" alt="Game 4">
+        <p>Game 4</p>
+      </div>
+      <div class="carousel-item">
+        <video width="270" height="auto" preload="auto">
+          <source src="game5.mp4" type="video/mp4">
+        </video>
+        <img src="g1.jpeg" alt="Game 5">
+        <p>Game 5</p>
+      </div>
+    </div>
+    <button class="watch-now">Play Now</button>
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+  </section>
+  <script>
+    // Get all carousel items
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    // Loop through each carousel item
+    carouselItems.forEach(item => {
+        // Get the video element inside the carousel item
+        const video = item.querySelector('video');
+        const img = item.querySelector('img');
+
+        // Play video when hovering over the carousel item
+        item.addEventListener('mouseenter', () => {
+            if (video) {
+                video.style.display = 'block';  // Show video
+                video.play();                   // Start playing the video
+                img.style.display = 'none';     // Hide the image
+            }
+        });
+
+        // Pause video when the hover effect ends
+        item.addEventListener('mouseleave', () => {
+            if (video) {
+                video.style.display = 'none';  // Hide video
+                video.pause();                 // Pause the video
+                img.style.display = 'block';   // Show the image again
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
